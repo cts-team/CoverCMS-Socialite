@@ -216,7 +216,7 @@ abstract class AbstractOAuth2
     public function displayLoginAgent()
     {
         $ref = new \ReflectionClass(get_called_class());
-        echo file_get_contents(dirname($ref->getFileName()) . '/loginAgent.html');
+        echo file_get_contents(dirname($ref->getFileName()) . '/view.html');
     }
 
     /**
