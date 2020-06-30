@@ -1,0 +1,33 @@
+{
+  "name": "covercms/socialite",
+  "type": "library",
+  "description": "CoverCMS socialite library",
+  "keywords": [
+    "php",
+    "socialite",
+    "WebRover",
+    "QQ",
+    "Wechat",
+    "Weibo",
+    "Baidu",
+    "OAuth2"
+  ],
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Mr moon",
+      "email": "createsmart@163.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "guzzlehttp/guzzle": "^6.5.0",
+    "ext-json": "*",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "CoverCMS\\Socialite\\": "src/"
+    }
+  }
+}
