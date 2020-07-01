@@ -38,12 +38,14 @@ class OAuth2 extends AbstractOAuth2
     {
         try {
             $response = $this->http->post($this->getUrl('oauth/token'), [
-                'grant_type' => 'password',
-                'username' => $username,
-                'password' => $password,
-                'client_id' => $this->appid,
-                'client_secret' => $this->appSecret,
-                'scope' => $scope
+                'form_params'=>[
+                    'grant_type' => 'password',
+                    'username' => $username,
+                    'password' => $password,
+                    'client_id' => $this->appid,
+                    'client_secret' => $this->appSecret,
+                    'scope' => $scope
+                ]
             ]);
         } catch (ClientException $exception) {
             $response = $exception->getResponse();
@@ -90,11 +92,13 @@ class OAuth2 extends AbstractOAuth2
     {
         try {
             $response = $this->http->post($this->getUrl('oauth/token'), [
-                'grant_type' => 'authorization_code',
-                'code' => isset($code) ? $code : (isset($_GET['code']) ? $_GET['code'] : ''),
-                'client_id' => $this->appid,
-                'redirect_uri' => $this->getRedirectUri(),
-                'client_secret' => $this->appSecret
+                'form_params'=>[
+                    'grant_type' => 'authorization_code',
+                    'code' => isset($code) ? $code : (isset($_GET['code']) ? $_GET['code'] : ''),
+                    'client_id' => $this->appid,
+                    'redirect_uri' => $this->getRedirectUri(),
+                    'client_secret' => $this->appSecret
+                ]
             ]);
         } catch (ClientException $exception) {
             $response = $exception->getResponse();
